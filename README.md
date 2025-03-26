@@ -1,63 +1,91 @@
-# 🔍 IoT Security Scanner: Making Your Smart Home Less Dumb About Security!
+# IoT Security Scanner
 
-## What is this magical tool?
-Ever wonder if your smart toaster is secretly plotting world domination? The IoT Security Scanner is here to find out! This tool sniffs around your network, looking for IoT devices with questionable security practices (we're looking at you, webcam with the default password "admin123").
+A network security tool for identifying and assessing vulnerabilities in IoT devices on local networks.
 
-## 🚨 Features That Make Hackers Cry
-- **Device Detective**: Finds all those sneaky IoT devices hiding on your network
-- **Port Patrol**: Checks which doors your devices have left unlocked for visitors
-- **Vulnerability Vigilante**: Identifies security issues faster than you can say "my refrigerator got hacked"
-- **Risk Radar**: Tells you which devices to worry about first (spoiler: it's the one with Telnet enabled)
+## Overview
 
-## 🛠️ Installation (So Easy Your Smart Speaker Could Do It)
+This tool scans your network to discover connected devices, identify potential IoT devices, check for common security vulnerabilities, and provide a risk assessment report. It's designed to help users identify security issues in their IoT infrastructure.
+
+## Features
+
+- **Device Discovery**: Automatically finds devices on your local network
+- **IoT Identification**: Recognizes IoT devices using vendor identification
+- **Port Scanning**: Detects open ports and potentially vulnerable services
+- **Vulnerability Assessment**: Identifies common security issues such as:
+  - Telnet enabled
+  - Unencrypted HTTP
+  - UPnP services
+  - Non-standard HTTP ports
+- **Risk Assessment**: Assigns risk scores to prioritize remediation efforts
+- **Reporting**: Generates detailed security reports for documentation
+
+## Installation
+
 ```bash
-# Clone this repo faster than your smart doorbell uploads footage to the cloud
+# Clone the repository
 git clone https://github.com/YashKantheti/simple-iot-scanner.git
 
-# Enter the security zone
+# Navigate to the directory
 cd simple-iot-scanner
 
-# Run with sudo because we're serious about security (and need those admin powers)
+# Run the scanner (requires admin privileges)
 sudo python3 main.py
 ```
 
-## 🏃‍♂️ One-Line Wonder (For the Impatient)
+## Quick Start
+
+One-command execution:
 ```bash
 curl -s https://raw.githubusercontent.com/YashKantheti/simple-iot-scanner/main/run.sh | bash
 ```
 
-## 📊 Example Output (Names Changed to Protect the Vulnerable)
+## Usage Options
+
+```bash
+# Run with default settings
+sudo python3 main.py
+
+# Specify a different IP address/network
+sudo python3 main.py --ip 192.168.0.1
+
+# Custom output filename
+sudo python3 main.py --output custom_report.json
+```
+
+## Example Output
+
 ```
 === IoT SECURITY SCAN RESULTS ===
 +---------------+-------------+-----------+------------+------------------+----------------+
 | IP            | Hostname    | Vendor    | Risk Score | Open Ports       | Vulnerabilities|
 +---------------+-------------+-----------+------------+------------------+----------------+
-| 192.168.1.15  | SmartFridge | FridgeCo  | 7          | 80, 23, 1900     | 3 issues       |
+| 192.168.1.15  | device-a    | Vendor-A  | 7          | 80, 23, 1900     | 3 issues       |
+| 192.168.1.22  | device-b    | Vendor-B  | 5          | 80, 8080         | 2 issues       |
 +---------------+-------------+-----------+------------+------------------+----------------+
-
-Your fridge is more open than your kitchen cabinet! It's running Telnet.
-Maybe it's trying to call home about your midnight snacking habits?
 ```
 
-## 🔮 Future Enhancements (When I'm Not Busy Securing My Own Toaster)
-- Automatic firmware updating (because who actually does that manually?)
-- Default password checking (no, "password123" is NOT secure)
-- Fancy dashboard with blinky lights to impress your techie friends
-- Integration with smart home systems ("Alexa, why are you talking to that server in Russia?")
+## Security Considerations
 
-## 🤓 Why I Made This
-Because finding out your baby monitor is streaming to the public internet shouldn't be how you go viral.
+This tool performs network scanning operations that require administrative privileges. It's designed for use on networks you own or have permission to scan.
 
-## 📱 Contact
-Found a bug? (The software kind, not the one your smart vacuum refuses to pick up)
+## Requirements
+
+- Python 3.6+
+- Network admin privileges
+- Dependencies (automatically installed):
+  - prettytable
+
+## Future Enhancements
+
+- Default credential testing
+- Firmware version checking
+- Web-based reporting dashboard
+- Network segmentation recommendations
+
+## License
+
+MIT License
+
+## Contact
+
 - GitHub: @YashKantheti
-- Email: your.email@example.com
-- Carrier Pigeon: More secure than some IoT devices!
-
-## ⚖️ License
-MIT License - Free as in "free to secure your IoT devices before they become part of a botnet"
-
----
-
-*Remember: The S in IoT stands for Security. Oh wait...*
-
